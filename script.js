@@ -12,11 +12,11 @@
 */
 
 const wallpapers = [
-  {
-    title: "Aurora",
-    category: "Nature",
-    image: "wallpapers/aurora.svg",
-    resolution: "1920×1080"
+    {
+    title: "Chainsaw Man",
+    category: "Anime",
+    image: "wallpapers/1.jpeg",
+    resolution: "3840x2160"
   },
   {
     title: "Mountains",
