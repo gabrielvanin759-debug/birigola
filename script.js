@@ -21,12 +21,6 @@ const wallpapers = [
   {
     title: "Jujutsu Kaisen",
     category: "Anime",
-    image: "wallpapers/1.mp4",
-    resolution: "1920x1080"
-  },
-  {
-    title: "Jujutsu Kaisen",
-    category: "Anime",
     image: "wallpapers/2.jpeg",
     resolution: "3840x2160"
   },
