@@ -1,5 +1,5 @@
 /*
-  BOINITIM WALLPAPERS
+  Fudido WALLPAPERS
   Adicione seus wallpapers na pasta /wallpapers e registre-os abaixo.
 
   Exemplo:
