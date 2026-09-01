@@ -1,5 +1,5 @@
 /*
-  Fudido WALLPAPERS
+  BOINITIM WALLPAPERS
   Adicione seus wallpapers na pasta /wallpapers e registre-os abaixo.
 
   Exemplo:
@@ -12,17 +12,23 @@
 */
 
 const wallpapers = [
-    {
+  {
     title: "Chainsaw Man",
     category: "Anime",
     image: "wallpapers/1.jpeg",
     resolution: "3840x2160"
   },
   {
-    title: "Mountains",
-    category: "Nature",
-    image: "wallpapers/mountains.svg",
-    resolution: "2560×1440"
+    title: "Jujutsu Kaisen",
+    category: "Anime",
+    image: "wallpapers/1.mp4",
+    resolution: "1920x1080"
+  },
+  {
+    title: "Jujutsu Kaisen",
+    category: "Anime",
+    image: "wallpapers/2.jpeg",
+    resolution: "3840x2160"
   },
   {
     title: "Cyber City",
