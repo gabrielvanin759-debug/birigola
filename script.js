@@ -61,7 +61,7 @@ const wallpapers = [
   { title: "60", category: "Anime", image: "wallpapers/61.jpg", resolution: "5625x3750" },
   { title: "61", category: "Anime", image: "wallpapers/62.png", resolution: "3597x2064" },
   { title: "62", category: "Anime", image: "wallpapers/63.png", resolution: "1920x1200" },
-  { title: "63", category: "Anime", image: "wallpapers/64.png", resolution: "2560x1440"}
+  { title: "63", category: "Anime", image: "wallpapers/64.png", resolution: "2560x1440" }
 ];
 
 const placeholder = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000"><rect width="1600" height="1000" fill="#121317"/><text x="800" y="500" fill="#3a3d47" font-family="sans-serif" font-size="36" text-anchor="middle">SEM PREVIEW</text></svg>`)}`;
@@ -73,19 +73,29 @@ const searchInput = document.querySelector("#searchInput");
 const heroCount = document.querySelector("#heroCount");
 
 let activeCategory = "Todos";
+let renderedCards = new Set();
 
 function categories() {
   return ["Todos", ...new Set(wallpapers.map(w => w.category))];
 }
 
 function resLabel(r) {
-  const [w, h] = r.split("x").map(Number);
+  const [w] = r.split("x").map(Number);
   if (w >= 7680) return "8K";
   if (w >= 5120) return "5K+";
   if (w >= 3840) return "4K";
   if (w >= 2560) return "1440p";
   if (w >= 1920) return "1080p";
   return r;
+}
+
+function resBadge(r) {
+  const [w] = r.split("x").map(Number);
+  if (w >= 7680) return "8K";
+  if (w >= 5120) return "5K";
+  if (w >= 3840) return "4K";
+  if (w >= 2560) return "2K";
+  return "HD";
 }
 
 function renderFilters() {
@@ -111,20 +121,22 @@ function render() {
     return matchCat && matchQ;
   });
 
+  const newIndices = new Set(filtered.map(w => wallpapers.indexOf(w)));
+  renderedCards.clear();
+
   gallery.innerHTML = filtered.map((w, i) => {
     const idx = wallpapers.indexOf(w);
     return `
     <article class="card" data-index="${idx}" style="animation-delay:${Math.min(i * 30, 400)}ms">
       <div class="card-thumb">
-        <img src="${esc(w.image)}" alt="${esc(w.title)}" loading="lazy" onerror="this.src='${placeholder}'">
-      </div>
-      <div class="card-body">
-        <div>
-          <h3 class="card-title">${esc(w.title)}</h3>
-          <div class="card-meta">${esc(w.category)}<span class="dot"></span>${resLabel(w.resolution)}</div>
+        <div class="card-skeleton" data-skel="${idx}"></div>
+        <img data-img="${idx}" src="${esc(w.image)}" alt="${esc(w.title)}" loading="lazy" onerror="this.src='${placeholder}'">
+        <span class="card-res-badge">${resBadge(w.resolution)}</span>
+        <div class="card-play">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
         </div>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--text-dim);flex-shrink:0"><path d="M7 17 17 7M17 7H7m10 0v10"/></svg>
       </div>
+
     </article>`;
   }).join("");
 
@@ -132,7 +144,17 @@ function render() {
   heroCount.textContent = wallpapers.length;
 
   gallery.querySelectorAll(".card").forEach(card => {
-    card.addEventListener("click", () => openModal(wallpapers[Number(card.dataset.index)]));
+    const idx = card.dataset.index;
+    const img = card.querySelector(`[data-img="${idx}"]`);
+    const skel = card.querySelector(`[data-skel="${idx}"]`);
+
+    if (img.complete) {
+      skel.classList.add("hidden");
+    } else {
+      img.addEventListener("load", () => skel.classList.add("hidden"), { once: true });
+    }
+
+    card.addEventListener("click", () => openModal(wallpapers[Number(idx)]));
   });
 }
 
