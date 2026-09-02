@@ -1,14 +1,26 @@
 const wallpapers = [
   { title: "1", category: "Anime", image: "wallpapers/1.jpeg", resolution: "3840x2160" },
+  { title: "1", category: "Anime", image: "wallpapers/1.mp4", resolution: "3840x2160" },
   { title: "2", category: "Anime", image: "wallpapers/2.jpeg", resolution: "3840x2160" },
+  { title: "2", category: "Anime", image: "wallpapers/2.mp4", resolution: "3840x2160" },
   { title: "3", category: "Anime", image: "wallpapers/3.jpg", resolution: "2560x1440" },
+  { title: "3", category: "Anime", image: "wallpapers/3.mp4", resolution: "2560x1440" },
+  { title: "4", category: "Anime", image: "wallpapers/4.gif", resolution: "1920x1080" },
+  { title: "4", category: "Anime", image: "wallpapers/4.mp4", resolution: "3840x2160" },
   { title: "4", category: "Anime", image: "wallpapers/5.png", resolution: "2112x1415" },
+  { title: "5", category: "Anime", image: "wallpapers/5.mp4", resolution: "3840x2160" },
   { title: "5", category: "Anime", image: "wallpapers/6.jpg", resolution: "3840x2160" },
+  { title: "6", category: "Anime", image: "wallpapers/6.mp4", resolution: "3840x2160" },
   { title: "6", category: "Anime", image: "wallpapers/7.jpg", resolution: "3840x2160" },
+  { title: "7", category: "Anime", image: "wallpapers/7.mp4", resolution: "3840x2160" },
   { title: "7", category: "Anime", image: "wallpapers/8.jpg", resolution: "3840x2160" },
+  { title: "8", category: "Anime", image: "wallpapers/8.mp4", resolution: "3840x2160" },
   { title: "8", category: "Anime", image: "wallpapers/9.jpg", resolution: "5120x2880" },
+  { title: "9", category: "Anime", image: "wallpapers/9.mp4", resolution: "3840x2160" },
   { title: "9", category: "Anime", image: "wallpapers/10.jpg", resolution: "7680x4320" },
+  { title: "10", category: "Anime", image: "wallpapers/10.mp4", resolution: "3840x2160" },
   { title: "10", category: "Anime", image: "wallpapers/11.jpg", resolution: "3840x2160" },
+  { title: "11", category: "Anime", image: "wallpapers/11.mp4", resolution: "3840x2160" },
   { title: "11", category: "Anime", image: "wallpapers/12.png", resolution: "3840x2160" },
   { title: "12", category: "Anime", image: "wallpapers/13.jpg", resolution: "3840x2281" },
   { title: "13", category: "Anime", image: "wallpapers/14.jpg", resolution: "5120x1440" },
@@ -61,7 +73,9 @@ const wallpapers = [
   { title: "60", category: "Anime", image: "wallpapers/61.jpg", resolution: "5625x3750" },
   { title: "61", category: "Anime", image: "wallpapers/62.png", resolution: "3597x2064" },
   { title: "62", category: "Anime", image: "wallpapers/63.png", resolution: "1920x1200" },
-  { title: "63", category: "Anime", image: "wallpapers/64.png", resolution: "2560x1440" }
+  { title: "63", category: "Anime", image: "wallpapers/64.png", resolution: "2560x1440" },
+  { title: "64", category: "Anime", image: "wallpapers/65.mp4", resolution: "3840x2160" },
+  { title: "65", category: "Anime", image: "wallpapers/66.mp4", resolution: "3840x2160" }
 ];
 
 const placeholder = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000"><rect width="1600" height="1000" fill="#121317"/><text x="800" y="500" fill="#3a3d47" font-family="sans-serif" font-size="36" text-anchor="middle">SEM PREVIEW</text></svg>`)}`;
@@ -73,7 +87,14 @@ const searchInput = document.querySelector("#searchInput");
 const heroCount = document.querySelector("#heroCount");
 
 let activeCategory = "Todos";
-let renderedCards = new Set();
+
+function isVideo(filename) {
+  return /\.(mp4|webm|mov)$/i.test(filename);
+}
+
+function isGif(filename) {
+  return /\.gif$/i.test(filename);
+}
 
 function categories() {
   return ["Todos", ...new Set(wallpapers.map(w => w.category))];
@@ -96,6 +117,12 @@ function resBadge(r) {
   if (w >= 3840) return "4K";
   if (w >= 2560) return "2K";
   return "HD";
+}
+
+function typeIcon(filename) {
+  if (isVideo(filename)) return `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
+  if (isGif(filename)) return `<span style="font-size:10px;font-weight:700;letter-spacing:.03em">GIF</span>`;
+  return "";
 }
 
 function renderFilters() {
@@ -121,22 +148,21 @@ function render() {
     return matchCat && matchQ;
   });
 
-  const newIndices = new Set(filtered.map(w => wallpapers.indexOf(w)));
-  renderedCards.clear();
-
   gallery.innerHTML = filtered.map((w, i) => {
     const idx = wallpapers.indexOf(w);
+    const video = isVideo(w.image);
+    const media = video
+      ?       `<video data-vid="${idx}" src="${esc(w.image)}" muted loop playsinline preload="metadata" onerror="this.style.display='none'"></video>`
+      : `<img data-img="${idx}" src="${esc(w.image)}" alt="${esc(w.title)}" loading="lazy" onerror="this.src='${placeholder}'">`;
+
     return `
-    <article class="card" data-index="${idx}" style="animation-delay:${Math.min(i * 30, 400)}ms">
+    <article class="card${video ? ' card-video' : ''}" data-index="${idx}" style="animation-delay:${Math.min(i * 30, 400)}ms">
       <div class="card-thumb">
         <div class="card-skeleton" data-skel="${idx}"></div>
-        <img data-img="${idx}" src="${esc(w.image)}" alt="${esc(w.title)}" loading="lazy" onerror="this.src='${placeholder}'">
+        ${media}
         <span class="card-res-badge">${resBadge(w.resolution)}</span>
-        <div class="card-play">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
-        </div>
+        ${video ? `<span class="card-type-badge">${typeIcon(w.image)}</span>` : ''}
       </div>
-
     </article>`;
   }).join("");
 
@@ -145,13 +171,21 @@ function render() {
 
   gallery.querySelectorAll(".card").forEach(card => {
     const idx = card.dataset.index;
+    const vid = card.querySelector(`[data-vid="${idx}"]`);
     const img = card.querySelector(`[data-img="${idx}"]`);
     const skel = card.querySelector(`[data-skel="${idx}"]`);
+    const mediaEl = vid || img;
 
-    if (img.complete) {
-      skel.classList.add("hidden");
-    } else {
-      img.addEventListener("load", () => skel.classList.add("hidden"), { once: true });
+    if (vid) {
+      vid.addEventListener("loadeddata", () => skel.classList.add("hidden"), { once: true });
+      card.addEventListener("mouseenter", () => vid.play().catch(() => {}));
+      card.addEventListener("mouseleave", () => { vid.pause(); vid.currentTime = 0; });
+    } else if (img) {
+      if (img.complete) {
+        skel.classList.add("hidden");
+      } else {
+        img.addEventListener("load", () => skel.classList.add("hidden"), { once: true });
+      }
     }
 
     card.addEventListener("click", () => openModal(wallpapers[Number(idx)]));
@@ -160,15 +194,39 @@ function render() {
 
 function openModal(w) {
   const modal = document.querySelector("#modal");
-  const img = document.querySelector("#modalImage");
-  img.src = w.image;
-  img.onerror = () => img.src = placeholder;
-  img.alt = w.title;
+  const wrap = document.querySelector(".modal-img-wrap");
+  const video = isVideo(w.image);
+
+  const existingMedia = wrap.querySelector("img, video");
+  if (existingMedia) existingMedia.remove();
+
+  if (video) {
+    const v = document.createElement("video");
+    v.src = w.image;
+    v.controls = true;
+    v.autoplay = true;
+    v.playsInline = true;
+    v.style.width = "100%";
+    v.style.maxHeight = "70vh";
+    v.style.objectFit = "contain";
+    v.style.display = "block";
+    wrap.appendChild(v);
+  } else {
+    const img = document.createElement("img");
+    img.src = w.image;
+    img.onerror = () => img.src = placeholder;
+    img.alt = w.title;
+    wrap.appendChild(img);
+  }
+
   document.querySelector("#modalTitle").textContent = w.title;
-  document.querySelector("#modalMeta").textContent = `${w.category} · ${w.resolution}`;
+  document.querySelector("#modalMeta").textContent = `${w.category} · ${w.resolution}${video ? ' · Video' : ''}`;
+
   const dl = document.querySelector("#downloadButton");
   dl.href = w.image;
-  dl.download = w.title.toLowerCase().replace(/[^a-z0-9]+/gi, "-") + ".jpg";
+  const ext = video ? w.image.split(".").pop() : "jpg";
+  dl.download = w.title.toLowerCase().replace(/[^a-z0-9]+/gi, "-") + "." + ext;
+
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -176,6 +234,9 @@ function openModal(w) {
 
 function closeModal() {
   const modal = document.querySelector("#modal");
+  const wrap = document.querySelector(".modal-img-wrap");
+  const vid = wrap.querySelector("video");
+  if (vid) { vid.pause(); vid.src = ""; }
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
