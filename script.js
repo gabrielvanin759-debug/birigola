@@ -1,52 +1,69 @@
-/*
-  BOINITIM WALLPAPERS
-  Adicione seus wallpapers na pasta /wallpapers e registre-os abaixo.
-
-  Exemplo:
-  {
-    title: "Meu Wallpaper",
-    category: "Games",
-    image: "wallpapers/games/meu-wallpaper.jpg",
-    resolution: "1920×1080"
-  }
-*/
-
 const wallpapers = [
-  {
-    title: "Chainsaw Man",
-    category: "Anime",
-    image: "wallpapers/1.jpeg",
-    resolution: "3840x2160"
-  },
-  {
-    title: "Jujutsu Kaisen",
-    category: "Anime",
-    image: "wallpapers/2.jpeg",
-    resolution: "3840x2160"
-  },
-  {
-    title: "Cyber City",
-    category: "Cyberpunk",
-    image: "wallpapers/cyber-city.svg",
-    resolution: "1920×1080"
-  },
-  {
-    title: "Dark Space",
-    category: "Space",
-    image: "wallpapers/dark-space.svg",
-    resolution: "1920×1080"
-  }
+  { title: "Wallpaper 1", category: "Anime", image: "wallpapers/1.jpeg", resolution: "3840x2160" },
+  { title: "Wallpaper 2", category: "Anime", image: "wallpapers/2.jpeg", resolution: "3840x2160" },
+  { title: "Wallpaper 3", category: "Anime", image: "wallpapers/3.jpg", resolution: "2560x1440" },
+  { title: "Wallpaper 4", category: "Anime", image: "wallpapers/5.png", resolution: "2112x1415" },
+  { title: "Wallpaper 5", category: "Anime", image: "wallpapers/6.jpg", resolution: "3840x2160" },
+  { title: "Wallpaper 6", category: "Anime", image: "wallpapers/7.jpg", resolution: "3840x2160" },
+  { title: "Wallpaper 7", category: "Anime", image: "wallpapers/8.jpg", resolution: "3840x2160" },
+  { title: "Wallpaper 8", category: "Anime", image: "wallpapers/9.jpg", resolution: "5120x2880" },
+  { title: "Wallpaper 9", category: "Anime", image: "wallpapers/10.jpg", resolution: "7680x4320" },
+  { title: "Wallpaper 10", category: "Anime", image: "wallpapers/11.jpg", resolution: "3840x2160" },
+  { title: "Wallpaper 11", category: "Anime", image: "wallpapers/12.png", resolution: "3840x2160" },
+  { title: "Wallpaper 12", category: "Anime", image: "wallpapers/13.jpg", resolution: "3840x2281" },
+  { title: "Wallpaper 13", category: "Anime", image: "wallpapers/14.jpg", resolution: "5120x1440" },
+  { title: "Wallpaper 14", category: "Anime", image: "wallpapers/15.jpg", resolution: "4124x2626" },
+  { title: "Wallpaper 15", category: "Anime", image: "wallpapers/16.png", resolution: "3840x2160" },
+  { title: "Wallpaper 16", category: "Anime", image: "wallpapers/17.png", resolution: "2560x1440" },
+  { title: "Wallpaper 17", category: "Anime", image: "wallpapers/18.jpg", resolution: "4421x2500" },
+  { title: "Wallpaper 18", category: "Anime", image: "wallpapers/19.png", resolution: "3200x1656" },
+  { title: "Wallpaper 19", category: "Anime", image: "wallpapers/20.jpg", resolution: "3840x1634" },
+  { title: "Wallpaper 20", category: "Anime", image: "wallpapers/21.jpg", resolution: "5040x2160" },
+  { title: "Wallpaper 21", category: "Anime", image: "wallpapers/22.jpg", resolution: "2048x1152" },
+  { title: "Wallpaper 22", category: "Anime", image: "wallpapers/23.jpg", resolution: "5138x1445" },
+  { title: "Wallpaper 23", category: "Anime", image: "wallpapers/24.jpg", resolution: "3840x2160" },
+  { title: "Wallpaper 24", category: "Anime", image: "wallpapers/25.png", resolution: "3840x2160" },
+  { title: "Wallpaper 25", category: "Anime", image: "wallpapers/26(1).jpg", resolution: "7008x4333" },
+  { title: "Wallpaper 26", category: "Anime", image: "wallpapers/27(1).jpg", resolution: "3840x2620" },
+  { title: "Wallpaper 27", category: "Anime", image: "wallpapers/28.jpg", resolution: "3853x3000" },
+  { title: "Wallpaper 28", category: "Anime", image: "wallpapers/29.png", resolution: "3840x2160" },
+  { title: "Wallpaper 29", category: "Anime", image: "wallpapers/30.jpg", resolution: "2800x1575" },
+  { title: "Wallpaper 30", category: "Anime", image: "wallpapers/31.jpg", resolution: "4000x2660" },
+  { title: "Wallpaper 31", category: "Anime", image: "wallpapers/32.jpg", resolution: "3840x2160" },
+  { title: "Wallpaper 32", category: "Anime", image: "wallpapers/33.jpg", resolution: "3840x2400" },
+  { title: "Wallpaper 33", category: "Anime", image: "wallpapers/34.png", resolution: "2560x1440" },
+  { title: "Wallpaper 34", category: "Anime", image: "wallpapers/35.png", resolution: "3840x2160" },
+  { title: "Wallpaper 35", category: "Anime", image: "wallpapers/36.jpg", resolution: "3840x2160" },
+  { title: "Wallpaper 36", category: "Anime", image: "wallpapers/37.jpg", resolution: "3840x2160" },
+  { title: "Wallpaper 37", category: "Anime", image: "wallpapers/38.jpg", resolution: "3840x2240" },
+  { title: "Wallpaper 38", category: "Anime", image: "wallpapers/39.jpg", resolution: "3840x2160" },
+  { title: "Wallpaper 39", category: "Anime", image: "wallpapers/40.jpg", resolution: "3840x2160" },
+  { title: "Wallpaper 40", category: "Anime", image: "wallpapers/41.png", resolution: "1920x1080" },
+  { title: "Wallpaper 41", category: "Anime", image: "wallpapers/42.jpg", resolution: "3840x2160" },
+  { title: "Wallpaper 42", category: "Anime", image: "wallpapers/43.jpg", resolution: "3508x2380" },
+  { title: "Wallpaper 43", category: "Anime", image: "wallpapers/44.jpg", resolution: "3840x1650" },
+  { title: "Wallpaper 44", category: "Anime", image: "wallpapers/45.png", resolution: "3840x2160" },
+  { title: "Wallpaper 45", category: "Anime", image: "wallpapers/46.png", resolution: "1920x1080" },
+  { title: "Wallpaper 46", category: "Anime", image: "wallpapers/47.jpg", resolution: "3840x2160" },
+  { title: "Wallpaper 47", category: "Anime", image: "wallpapers/48.jpg", resolution: "1920x1080" },
+  { title: "Wallpaper 48", category: "Anime", image: "wallpapers/49.png", resolution: "3840x2160" },
+  { title: "Wallpaper 49", category: "Anime", image: "wallpapers/50.jpg", resolution: "3840x2012" },
+  { title: "Wallpaper 50", category: "Anime", image: "wallpapers/51.png", resolution: "2856x1590" },
+  { title: "Wallpaper 51", category: "Anime", image: "wallpapers/52.jpg", resolution: "4335x2990" },
+  { title: "Wallpaper 52", category: "Anime", image: "wallpapers/53.png", resolution: "3840x2160" },
+  { title: "Wallpaper 53", category: "Anime", image: "wallpapers/54.jpg", resolution: "1920x1080" },
+  { title: "Wallpaper 54", category: "Anime", image: "wallpapers/55.jpg", resolution: "3840x2282" },
+  { title: "Wallpaper 55", category: "Anime", image: "wallpapers/56.jpg", resolution: "2560x1440" },
+  { title: "Wallpaper 56", category: "Anime", image: "wallpapers/57.jpg", resolution: "2048x1449" },
+  { title: "Wallpaper 57", category: "Anime", image: "wallpapers/58.png", resolution: "5160x2160" },
+  { title: "Wallpaper 58", category: "Anime", image: "wallpapers/59.png", resolution: "1920x1080" },
+  { title: "Wallpaper 59", category: "Anime", image: "wallpapers/60.png", resolution: "2560x1440" },
+  { title: "Wallpaper 60", category: "Anime", image: "wallpapers/61.jpg", resolution: "5625x3750" },
+  { title: "Wallpaper 61", category: "Anime", image: "wallpapers/62.png", resolution: "3597x2064" },
+  { title: "Wallpaper 62", category: "Anime", image: "wallpapers/63.png", resolution: "1920x1200" }
 ];
 
-// Se você ainda não colocou as imagens de exemplo,
-// os cards continuarão aparecendo com um placeholder.
-const placeholder = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
-  <rect width="1600" height="1000" fill="#15171b"/>
-  <circle cx="1250" cy="200" r="260" fill="#b9ff4a" opacity=".12"/>
-  <circle cx="400" cy="750" r="330" fill="#fff" opacity=".03"/>
-  <text x="800" y="500" fill="#686e79" font-family="Arial" font-size="42" text-anchor="middle">ADICIONE SEU WALLPAPER</text>
-</svg>`)}`;
+const placeholder = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000"><rect width="1600" height="1000" fill="#121317"/><text x="800" y="500" fill="#3a3d47" font-family="sans-serif" font-size="36" text-anchor="middle">SEM PREVIEW</text></svg>`)}`;
 
 const gallery = document.querySelector("#gallery");
 const empty = document.querySelector("#empty");
@@ -60,12 +77,22 @@ function categories() {
   return ["Todos", ...new Set(wallpapers.map(w => w.category))];
 }
 
+function resLabel(r) {
+  const [w, h] = r.split("x").map(Number);
+  if (w >= 7680) return "8K";
+  if (w >= 5120) return "5K+";
+  if (w >= 3840) return "4K";
+  if (w >= 2560) return "1440p";
+  if (w >= 1920) return "1080p";
+  return r;
+}
+
 function renderFilters() {
   filters.innerHTML = categories().map(cat =>
-    `<button class="filter ${cat === activeCategory ? "active" : ""}" data-category="${escapeHTML(cat)}">${escapeHTML(cat)}</button>`
+    `<button class="filter-btn${cat === activeCategory ? ' active' : ''}" data-category="${esc(cat)}">${esc(cat)}</button>`
   ).join("");
 
-  filters.querySelectorAll(".filter").forEach(btn => {
+  filters.querySelectorAll(".filter-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       activeCategory = btn.dataset.category;
       renderFilters();
@@ -78,28 +105,27 @@ function render() {
   const query = searchInput.value.trim().toLowerCase();
 
   const filtered = wallpapers.filter(w => {
-    const matchesCategory = activeCategory === "Todos" || w.category === activeCategory;
-    const matchesSearch = !query ||
-      w.title.toLowerCase().includes(query) ||
-      w.category.toLowerCase().includes(query);
-    return matchesCategory && matchesSearch;
+    const matchCat = activeCategory === "Todos" || w.category === activeCategory;
+    const matchQ = !query || w.title.toLowerCase().includes(query) || w.category.toLowerCase().includes(query);
+    return matchCat && matchQ;
   });
 
-  gallery.innerHTML = filtered.map((w, i) => `
-    <article class="card" data-index="${wallpapers.indexOf(w)}">
-      <div class="thumb">
-        <img src="${escapeAttr(w.image)}" alt="${escapeAttr(w.title)}" loading="lazy"
-             onerror="this.src='${placeholder}'">
+  gallery.innerHTML = filtered.map((w, i) => {
+    const idx = wallpapers.indexOf(w);
+    return `
+    <article class="card" data-index="${idx}" style="animation-delay:${Math.min(i * 30, 400)}ms">
+      <div class="card-thumb">
+        <img src="${esc(w.image)}" alt="${esc(w.title)}" loading="lazy" onerror="this.src='${placeholder}'">
       </div>
       <div class="card-body">
         <div>
-          <h3 class="card-title">${escapeHTML(w.title)}</h3>
-          <div class="card-category">${escapeHTML(w.category)} · ${escapeHTML(w.resolution)}</div>
+          <h3 class="card-title">${esc(w.title)}</h3>
+          <div class="card-meta">${esc(w.category)}<span class="dot"></span>${resLabel(w.resolution)}</div>
         </div>
-        <div class="card-arrow">↗</div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--text-dim);flex-shrink:0"><path d="M7 17 17 7M17 7H7m10 0v10"/></svg>
       </div>
-    </article>
-  `).join("");
+    </article>`;
+  }).join("");
 
   empty.hidden = filtered.length !== 0;
   heroCount.textContent = wallpapers.length;
@@ -111,15 +137,15 @@ function render() {
 
 function openModal(w) {
   const modal = document.querySelector("#modal");
-  const image = document.querySelector("#modalImage");
-  image.src = w.image;
-  image.onerror = () => image.src = placeholder;
-  image.alt = w.title;
+  const img = document.querySelector("#modalImage");
+  img.src = w.image;
+  img.onerror = () => img.src = placeholder;
+  img.alt = w.title;
   document.querySelector("#modalTitle").textContent = w.title;
   document.querySelector("#modalMeta").textContent = `${w.category} · ${w.resolution}`;
-  const download = document.querySelector("#downloadButton");
-  download.href = w.image;
-  download.download = w.title.toLowerCase().replace(/[^a-z0-9]+/gi, "-") + ".jpg";
+  const dl = document.querySelector("#downloadButton");
+  dl.href = w.image;
+  dl.download = w.title.toLowerCase().replace(/[^a-z0-9]+/gi, "-") + ".jpg";
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -139,12 +165,16 @@ document.addEventListener("keydown", e => {
 });
 searchInput.addEventListener("input", render);
 
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, c => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
-  }[c]));
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && document.activeElement !== searchInput) {
+    e.preventDefault();
+    searchInput.focus();
+  }
+});
+
+function esc(v) {
+  return String(v).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;" }[c]));
 }
-function escapeAttr(value) { return escapeHTML(value); }
 
 renderFilters();
 render();
