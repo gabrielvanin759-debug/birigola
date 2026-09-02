@@ -3,49 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Fudido Wallpapers — uma coleção de wallpapers para puputador.">
-  <title>Fudido Wallpapers</title>
+  <meta name="description" content="Colecao premium de wallpapers anime em alta qualidade.">
+  <title>Wallpapers</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#">
-      <span class="brand-mark">B</span>
-      <span>Fudido</span>
-    </a>
-    <a class="github" href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+  <div class="noise"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="#">
+        <span class="logo-icon">W</span>
+        <span class="logo-text">Wallpapers</span>
+      </a>
+      <nav>
+        <a href="https://github.com/" target="_blank" rel="noopener" class="nav-link">
+          GitHub
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 9L9 3M9 3H4.5M9 3V7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </nav>
+    </div>
   </header>
 
   <main>
     <section class="hero">
-      <div>
-        <p class="eyebrow">WALLPAPER REPOSITORY</p>
-        <h1>Seu próximo<br><span>wallpaper.</span></h1>
-        <p class="subtitle">Uma coleção simples e bonita de wallpapers. Escolha uma imagem, veja em tela cheia e baixe em alta qualidade.</p>
-      </div>
-      <div class="hero-card">
-        <div class="hero-orb"></div>
-        <div class="hero-card-text">
+      <div class="hero-badge">WALLPAPER REPOSITORY</div>
+      <h1>Seu proximo<br><span>wallpaper</span> esta aqui.</h1>
+      <p class="hero-desc">Colecao premium de wallpapers anime. Escolha, visualize em tela cheia e baixe em alta qualidade.</p>
+      <div class="hero-stats">
+        <div class="stat">
           <strong id="heroCount">0</strong>
-          <span>wallpapers disponíveis</span>
+          <span>wallpapers</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <strong>4K</strong>
+          <span>resolucao maxima</span>
         </div>
       </div>
     </section>
 
-    <section class="toolbar">
-      <div class="search">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+    <section class="controls">
+      <div class="search-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
         <input id="searchInput" type="search" placeholder="Pesquisar wallpapers..." autocomplete="off">
+        <kbd>ESC</kbd>
       </div>
-      <div class="filters" id="filters"></div>
+      <div class="filter-row" id="filters"></div>
     </section>
 
     <section class="gallery" id="gallery"></section>
+
     <div class="empty" id="empty" hidden>
-      <div class="empty-icon">⌁</div>
+      <div class="empty-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m9 9 6 6m0-6-6 6"/></svg>
+      </div>
       <h2>Nada encontrado</h2>
       <p>Tente outro nome ou categoria.</p>
     </div>
@@ -53,21 +70,28 @@
 
   <div class="modal" id="modal" aria-hidden="true">
     <div class="modal-backdrop" id="modalBackdrop"></div>
-    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Visualização do wallpaper">
-      <button class="close" id="closeModal" aria-label="Fechar">×</button>
-      <img id="modalImage" src="" alt="">
-      <div class="modal-info">
-        <div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Visualizacao do wallpaper">
+      <button class="modal-close" id="closeModal" aria-label="Fechar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-img-wrap">
+        <img id="modalImage" src="" alt="">
+      </div>
+      <div class="modal-bar">
+        <div class="modal-info">
           <h2 id="modalTitle"></h2>
           <p id="modalMeta"></p>
         </div>
-        <a id="downloadButton" class="download" href="" download>Baixar <span>↓</span></a>
+        <a id="downloadButton" class="btn-download" href="" download>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14m-7-7 7 7 7-7"/></svg>
+          Baixar
+        </a>
       </div>
     </div>
   </div>
 
   <footer>
-    <span>© 2026 Boinitim Wallpapers</span>
+    <span>2026 Wallpapers</span>
     <span>Feito para a comunidade.</span>
   </footer>
 
